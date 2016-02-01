@@ -1,0 +1,67 @@
+unit dmU;
+
+interface
+
+uses
+  SysUtils, Classes, DB, ZAbstractRODataset, ZAbstractDataset, ZAbstractTable,
+  ZDataset, ZAbstractConnection, ZConnection;
+
+type
+  TdmCantina = class(TDataModule)
+    zConexao: TZConnection;
+    ztbCliente: TZTable;
+    ztbFuncionario: TZTable;
+    ztbProduto: TZTable;
+    ztbVenda: TZTable;
+    ztbClientec_id: TLargeintField;
+    ztbClientec_nome: TWideStringField;
+    ztbClientec_sexo: TWideStringField;
+    ztbClientec_email: TWideStringField;
+    ztbClientec_senha: TWideStringField;
+    ztbClientec_curso: TWideStringField;
+    ztbClientec_escola: TWideStringField;
+    ztbClientec_ativo: TWideStringField;
+    ztbFuncionariof_id: TLargeintField;
+    ztbFuncionariof_nome: TWideStringField;
+    ztbFuncionariof_usuario: TWideStringField;
+    ztbFuncionariof_senha: TWideStringField;
+    ztbFuncionariof_ativo: TWideStringField;
+    ztbFuncionariof_data_cadastro: TDateTimeField;
+    ztbFuncionariof_data_inativo: TDateTimeField;
+    ztbProdutop_id: TLargeintField;
+    ztbProdutop_nome: TWideStringField;
+    ztbProdutop_foto: TBlobField;
+    ztbProdutop_preco: TFloatField;
+    ztbProdutop_custo: TFloatField;
+    ztbProdutop_quantidade: TLargeintField;
+    ztbProdutop_qtd_alerta: TLargeintField;
+    ztbProdutop_ativo: TWideStringField;
+    ztbProdutop_data_cadastro: TDateTimeField;
+    ztbProdutop_data_inativo: TDateTimeField;
+    ztbVendav_id: TLargeintField;
+    ztbVendav_cliente: TLargeintField;
+    ztbVendav_caixa: TLargeintField;
+    ztbVendav_atendente: TLargeintField;
+    ztbVendav_status: TWideStringField;
+    ztbVendav_total: TFloatField;
+    ztbVendav_forma_pagamento: TWideStringField;
+    ztbVendav_origem: TWideStringField;
+    ztbVendav_data_consumo: TDateTimeField;
+    ztbVendav_data: TDateTimeField;
+    ztbVendav_data_devolucao: TDateTimeField;
+    ztbClientec_data_cadastro: TDateTimeField;
+    ztbClientec_data_inativo: TDateTimeField;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  dmCantina: TdmCantina;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,73 @@
+inherited frmProdutoLista: TfrmProdutoLista
+  Caption = 'Lista de Produtos'
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited gbDados: TGroupBox
+    inherited dbgDados: TDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'p_id'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_ativo'
+          Width = 30
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_nome'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_quantidade'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_qtd_alerta'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_preco'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_custo'
+          Width = 100
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_data_cadastro'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'p_data_inativo'
+          Width = 200
+          Visible = True
+        end>
+    end
+  end
+  inherited pnControle: TPanel
+    inherited btnEditar: TBitBtn
+      OnClick = btnEditarClick
+    end
+  end
+  inherited ds: TDataSource
+    DataSet = dmCantina.ztbProduto
+  end
+end

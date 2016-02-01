@@ -1,0 +1,153 @@
+unit PrincipalU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, ActnList, ImgList, ToolWin, ComCtrls, Menus, RpCon, RpConDS,
+  RpDefine, RpRave;
+
+type
+  TfrmPrincipal = class(TForm)
+    mmPrincipal: TMainMenu;
+    Arquivo1: TMenuItem;
+    Cadastro1: TMenuItem;
+    Venda1: TMenuItem;
+    N1: TMenuItem;
+    Sair1: TMenuItem;
+    Cliente1: TMenuItem;
+    Funcionrio1: TMenuItem;
+    Produto1: TMenuItem;
+    Relatrios1: TMenuItem;
+    Cliente2: TMenuItem;
+    Produtos1: TMenuItem;
+    Vendas1: TMenuItem;
+    Ajuda1: TMenuItem;
+    Sobre1: TMenuItem;
+    sbPrincipal: TStatusBar;
+    tbPrincipal: TToolBar;
+    ilPrincipal48: TImageList;
+    ilPrincipal20: TImageList;
+    acPrincipal: TActionList;
+    acCadCliente: TAction;
+    acCadFuncionario: TAction;
+    acCadProduto: TAction;
+    acVenda: TAction;
+    acRelCliente: TAction;
+    acRelProduto: TAction;
+    acRelVenda: TAction;
+    acSair: TAction;
+    acSobre: TAction;
+    ToolButton1: TToolButton;
+    ToolButton2: TToolButton;
+    ToolButton3: TToolButton;
+    ToolButton4: TToolButton;
+    ToolButton5: TToolButton;
+    ToolButton6: TToolButton;
+    ToolButton7: TToolButton;
+    ToolButton8: TToolButton;
+    ToolButton9: TToolButton;
+    ToolButton10: TToolButton;
+    acFecharJanela: TAction;
+    acDepositoConta: TAction;
+    ToolButton11: TToolButton;
+    rvClientes: TRvProject;
+    rvDSClientes: TRvDataSetConnection;
+    procedure acCadClienteExecute(Sender: TObject);
+    procedure acCadFuncionarioExecute(Sender: TObject);
+    procedure acCadProdutoExecute(Sender: TObject);
+    procedure acSairExecute(Sender: TObject);
+    procedure acDepositoContaExecute(Sender: TObject);
+    procedure acVendaExecute(Sender: TObject);
+    procedure acRelClienteExecute(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations}
+    procedure abreForm(Classe : TformClass);
+    function buscaForm(Classe : TFormClass) : TForm;
+    
+  end;
+
+var
+  frmPrincipal: TfrmPrincipal;
+
+implementation
+{$R *.dfm}
+uses clienteListaU, funcionarioListaU, produtoListaU, identificaClienteU, pontoVendaU;
+
+procedure TfrmPrincipal.abreForm(Classe: TformClass);
+var
+  i : integer;
+begin
+
+  for i := 0 to MDIChildCount -1 do begin
+      if MDIChildren[i] is Classe then begin // se o formulario ja esta aberto
+          if MDIChildren[i].WindowState = wsMinimized then begin
+              MDIChildren[i].WindowState := wsMaximized;
+            end;
+
+            MDIChildren[i].BringToFront; // traz o formulario para frente
+            MDIChildren[i].SetFocus; // joga o foco no formulario
+            exit; // sai da funcao abreForm
+        end; // encerra o if que define se o formulario requerido foi aberto ou nao
+    end; // encerra o for que percorre todos os formularios abertos no sistema
+
+    classe.Create(Application); // abre o formulario caso nao tenha sido aberto antes
+
+end;
+
+procedure TfrmPrincipal.acCadClienteExecute(Sender: TObject);
+begin
+  abreForm(TfrmClienteLista);
+end;
+
+procedure TfrmPrincipal.acCadFuncionarioExecute(Sender: TObject);
+begin
+  abreForm(TfrmFuncionarioLista);
+end;
+
+procedure TfrmPrincipal.acCadProdutoExecute(Sender: TObject);
+begin
+  abreForm(TfrmProdutoLista);
+end;
+
+procedure TfrmPrincipal.acDepositoContaExecute(Sender: TObject);
+begin
+  abreForm(TfrmIdentificaConta);
+end;
+
+procedure TfrmPrincipal.acRelClienteExecute(Sender: TObject);
+begin
+  rvClientes.ExecuteReport(rvClientes);
+end;
+
+procedure TfrmPrincipal.acSairExecute(Sender: TObject);
+begin
+  if MessageBox(Application.Handle, Pchar('Deseja sair do sistema?'), Pchar('Fechar sistema'), MB_YESNO+MB_ICONQUESTION ) = ID_YES then
+  begin
+    Application.Terminate;  
+  end;
+
+end;
+
+procedure TfrmPrincipal.acVendaExecute(Sender: TObject);
+begin
+    abreForm(TfrmPontoVenda);
+end;
+
+function TfrmPrincipal.buscaForm(Classe: TFormClass): TForm;
+var
+  i : integer;
+begin
+
+  for i := 0 to MDIChildCount -1 do begin
+      if MDIChildren[i] is Classe then begin // se o formulario ja esta aberto
+          result := MDIChildren[i];
+          exit;
+        end; // encerra o if que define se o formulario requerido foi aberto ou nao
+    end; // encerra o for que percorre todos os formularios abertos no sistema
+    MessageBox(Application.Handle, Pchar('Formulário não encontrato.'), Pchar('Busca por formulário'), MB_OK+MB_ICONINFORMATION);      
+end;
+
+end.

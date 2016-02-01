@@ -1,0 +1,14 @@
+inherited frmProdutoLista: TfrmProdutoLista
+  Caption = 'Lista de Produtos'
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited pnControle: TPanel
+    inherited btnEditar: TBitBtn
+      OnClick = btnEditarClick
+    end
+  end
+  inherited ds: TDataSource
+    DataSet = dmCantina.ztbProduto
+  end
+end

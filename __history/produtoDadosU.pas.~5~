@@ -1,0 +1,59 @@
+unit produtoDadosU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloDadosU, DB, StdCtrls, Buttons, ExtCtrls, DBCtrls, Mask;
+
+type
+  TfrmProdutoDados = class(TfrmModeloDados)
+    Label1: TLabel;
+    dbeID: TDBEdit;
+    Label2: TLabel;
+    dbeProduto: TDBEdit;
+    Label3: TLabel;
+    dbiFoto: TDBImage;
+    Label4: TLabel;
+    dbePreco: TDBEdit;
+    Label5: TLabel;
+    dbeCusto: TDBEdit;
+    Label6: TLabel;
+    dbeQuantidade: TDBEdit;
+    Label7: TLabel;
+    dbeAlertaReposicao: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    dbeDataCadastro: TDBEdit;
+    Label10: TLabel;
+    dbeDataInativo: TDBEdit;
+    dbcAtivo: TDBComboBox;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProdutoDados: TfrmProdutoDados;
+
+implementation
+
+{$R *.dfm}
+  uses dmU;
+
+procedure TfrmProdutoDados.btnSalvarClick(Sender: TObject);
+begin
+  inherited;
+  if dmCantina.ztbProdutop_ativo.Value = 'N' then
+  begin
+    dmCantina.ztbProdutop_data_inativo.Value := now;
+  end;
+
+  dmCantina.ztbProduto.Post;
+end;
+
+end.

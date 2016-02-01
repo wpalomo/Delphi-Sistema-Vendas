@@ -1,0 +1,46 @@
+unit identificaClientePDV;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, identificaClienteU, DB, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TfrmIdentificaContaPDV = class(TfrmIdentificaConta)
+    btnClientePadrao: TBitBtn;
+    procedure btnClientePadraoClick(Sender: TObject);
+    procedure btnEscolheClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmIdentificaContaPDV: TfrmIdentificaContaPDV;
+
+implementation
+  uses PontoVendaU, PrincipalU;
+
+{$R *.dfm}
+
+procedure TfrmIdentificaContaPDV.btnClientePadraoClick(Sender: TObject);
+begin
+  with (frmPrincipal.buscaForm(TfrmPontoVenda) as TfrmPontoVenda) do begin
+      IDCliente := 1;
+      edtCliente.Text := 'Cliente Padrao';
+  end;
+//  self.Close;
+end;
+
+procedure TfrmIdentificaContaPDV.btnEscolheClick(Sender: TObject);
+begin
+  with (frmPrincipal.buscaForm(TfrmPontoVenda) as TfrmPontoVenda) do begin
+      IDCliente := ds.DataSet.FieldByName('c_id').Value;
+      edtCliente.Text := ds.DataSet.FieldByName('c_nome').Value;
+  end;
+  self.Close;
+end;
+
+end.

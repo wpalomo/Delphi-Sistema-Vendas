@@ -1,0 +1,32 @@
+unit funcionarioListaU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloListaU, DB, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TfrmFuncionarioLista = class(TfrmModeloLista)
+    procedure btnEditarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFuncionarioLista: TfrmFuncionarioLista;
+
+implementation
+
+{$R *.dfm}
+  uses dmU;
+
+procedure TfrmFuncionarioLista.btnEditarClick(Sender: TObject);
+begin
+  inherited;
+  frmPrincipal.abreForm();
+end;
+
+end.

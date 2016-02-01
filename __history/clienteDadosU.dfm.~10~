@@ -1,0 +1,355 @@
+inherited frmClienteDados: TfrmClienteDados
+  Caption = 'Dados do Cliente'
+  ClientHeight = 452
+  ClientWidth = 741
+  WindowState = wsMaximized
+  ExplicitWidth = 757
+  ExplicitHeight = 490
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited gbDados: TGroupBox
+    Width = 741
+    Height = 366
+    ExplicitLeft = 24
+    ExplicitTop = -2
+    ExplicitWidth = 741
+    ExplicitHeight = 366
+    object Label1: TLabel
+      Left = 24
+      Top = 24
+      Width = 23
+      Height = 18
+      Caption = 'ID:'
+      FocusControl = dbeID
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label2: TLabel
+      Left = 24
+      Top = 59
+      Width = 48
+      Height = 18
+      Caption = 'Nome:'
+      FocusControl = dbeNome
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label3: TLabel
+      Left = 459
+      Top = 59
+      Width = 42
+      Height = 18
+      Caption = 'Sexo:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label4: TLabel
+      Left = 24
+      Top = 171
+      Width = 52
+      Height = 18
+      Caption = 'E-mail:'
+      FocusControl = dbeEmail
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label5: TLabel
+      Left = 368
+      Top = 171
+      Width = 51
+      Height = 18
+      Caption = 'Senha:'
+      FocusControl = dbeSenha
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label6: TLabel
+      Left = 24
+      Top = 115
+      Width = 48
+      Height = 18
+      Caption = 'Curso:'
+      FocusControl = debCurso
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label7: TLabel
+      Left = 368
+      Top = 115
+      Width = 53
+      Height = 18
+      Caption = 'Escola:'
+      FocusControl = dbeEscola
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label8: TLabel
+      Left = 185
+      Top = 24
+      Width = 44
+      Height = 18
+      Caption = 'Ativo:'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label9: TLabel
+      Left = 24
+      Top = 227
+      Width = 111
+      Height = 18
+      Caption = 'Data Cadastro:'
+      FocusControl = dbeDataCadastro
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object Label10: TLabel
+      Left = 368
+      Top = 227
+      Width = 98
+      Height = 18
+      Caption = 'Data Inativo:'
+      FocusControl = dbeDataInativo
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+    end
+    object dbeID: TDBEdit
+      Left = 53
+      Top = 21
+      Width = 100
+      Height = 26
+      TabStop = False
+      CharCase = ecUpperCase
+      DataField = 'c_id'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 0
+    end
+    object dbeNome: TDBEdit
+      Left = 24
+      Top = 83
+      Width = 409
+      Height = 26
+      Align = alCustom
+      CharCase = ecUpperCase
+      DataField = 'c_nome'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 2
+    end
+    object dbeEmail: TDBEdit
+      Left = 24
+      Top = 195
+      Width = 320
+      Height = 26
+      CharCase = ecLowerCase
+      DataField = 'c_email'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 6
+    end
+    object dbeSenha: TDBEdit
+      Left = 368
+      Top = 195
+      Width = 320
+      Height = 26
+      Color = clWhite
+      DataField = 'c_senha'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      PasswordChar = '*'
+      TabOrder = 7
+    end
+    object debCurso: TDBEdit
+      Left = 24
+      Top = 139
+      Width = 320
+      Height = 26
+      CharCase = ecUpperCase
+      DataField = 'c_curso'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 4
+    end
+    object dbeEscola: TDBEdit
+      Left = 368
+      Top = 139
+      Width = 320
+      Height = 26
+      CharCase = ecUpperCase
+      DataField = 'c_escola'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      TabOrder = 5
+    end
+    object dbeDataCadastro: TDBEdit
+      Left = 24
+      Top = 251
+      Width = 180
+      Height = 26
+      TabStop = False
+      CharCase = ecUpperCase
+      DataField = 'c_data_cadastro'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 8
+    end
+    object dbeDataInativo: TDBEdit
+      Left = 368
+      Top = 251
+      Width = 180
+      Height = 26
+      TabStop = False
+      CharCase = ecUpperCase
+      DataField = 'c_data_inativo'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 9
+    end
+    object dbcSexo: TDBComboBox
+      Left = 459
+      Top = 83
+      Width = 113
+      Height = 26
+      CharCase = ecUpperCase
+      DataField = 'c_sexo'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Items.Strings = (
+        'M'
+        'F')
+      ParentFont = False
+      TabOrder = 3
+    end
+    object dbcAtivo: TDBComboBox
+      Left = 235
+      Top = 21
+      Width = 78
+      Height = 26
+      CharCase = ecUpperCase
+      DataField = 'c_ativo'
+      DataSource = ds
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -15
+      Font.Name = 'Tahoma'
+      Font.Style = []
+      Items.Strings = (
+        'S'
+        'N')
+      ParentFont = False
+      TabOrder = 1
+    end
+  end
+  inherited pnControle: TPanel
+    Top = 366
+    Width = 741
+    ExplicitTop = 366
+    ExplicitWidth = 741
+    inherited btnFechar: TBitBtn
+      Left = 652
+      TabOrder = 2
+      ExplicitLeft = 652
+    end
+    inherited btnCancelar: TBitBtn
+      Left = 554
+      ExplicitLeft = 554
+    end
+    inherited btnSalvar: TBitBtn
+      Left = 466
+      TabOrder = 0
+      ExplicitLeft = 466
+    end
+  end
+  inherited ds: TDataSource
+    DataSet = dmCantina.ztbCliente
+    Left = 632
+    Top = 24
+  end
+end

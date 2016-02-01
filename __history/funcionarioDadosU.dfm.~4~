@@ -1,0 +1,165 @@
+inherited frmFuncionarioDados: TfrmFuncionarioDados
+  Caption = 'Dados do Funcion'#225'rio'
+  ClientHeight = 408
+  ClientWidth = 686
+  WindowState = wsMaximized
+  ExplicitWidth = 702
+  ExplicitHeight = 446
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited gbDados: TGroupBox
+    Width = 686
+    Height = 322
+    object Label1: TLabel
+      Left = 32
+      Top = 32
+      Width = 11
+      Height = 13
+      Caption = 'ID'
+      FocusControl = dbeID
+    end
+    object Label2: TLabel
+      Left = 32
+      Top = 56
+      Width = 55
+      Height = 13
+      Caption = 'Funcion'#225'rio'
+      FocusControl = dbeFuncionario
+    end
+    object Label3: TLabel
+      Left = 32
+      Top = 99
+      Width = 36
+      Height = 13
+      Caption = 'Usu'#225'rio'
+      FocusControl = dbeUsuario
+    end
+    object Label4: TLabel
+      Left = 264
+      Top = 99
+      Width = 30
+      Height = 13
+      Caption = 'Senha'
+      FocusControl = dbeSenha
+    end
+    object Label5: TLabel
+      Left = 159
+      Top = 32
+      Width = 25
+      Height = 13
+      Caption = 'Ativo'
+    end
+    object Label6: TLabel
+      Left = 32
+      Top = 150
+      Width = 70
+      Height = 13
+      Caption = 'Data Cadastro'
+      FocusControl = dbeDataCadastro
+    end
+    object Label7: TLabel
+      Left = 264
+      Top = 150
+      Width = 60
+      Height = 13
+      Caption = 'Data Inativo'
+      FocusControl = dbeDataInativo
+    end
+    object dbeID: TDBEdit
+      Left = 49
+      Top = 29
+      Width = 88
+      Height = 21
+      TabStop = False
+      DataField = 'f_id'
+      DataSource = ds
+      TabOrder = 0
+    end
+    object dbeFuncionario: TDBEdit
+      Left = 32
+      Top = 72
+      Width = 432
+      Height = 21
+      DataField = 'f_nome'
+      DataSource = ds
+      TabOrder = 2
+    end
+    object dbeUsuario: TDBEdit
+      Left = 32
+      Top = 115
+      Width = 200
+      Height = 21
+      DataField = 'f_usuario'
+      TabOrder = 3
+    end
+    object dbeSenha: TDBEdit
+      Left = 264
+      Top = 115
+      Width = 200
+      Height = 21
+      DataField = 'f_senha'
+      PasswordChar = '*'
+      TabOrder = 4
+    end
+    object dbeDataCadastro: TDBEdit
+      Left = 32
+      Top = 166
+      Width = 200
+      Height = 21
+      TabStop = False
+      DataField = 'f_data_cadastro'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clWindowText
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 5
+    end
+    object dbeDataInativo: TDBEdit
+      Left = 264
+      Top = 166
+      Width = 200
+      Height = 21
+      TabStop = False
+      DataField = 'f_data_inativo'
+      Font.Charset = DEFAULT_CHARSET
+      Font.Color = clRed
+      Font.Height = -11
+      Font.Name = 'Tahoma'
+      Font.Style = [fsBold]
+      ParentFont = False
+      ReadOnly = True
+      TabOrder = 6
+    end
+    object dbeAtivo: TDBComboBox
+      Left = 190
+      Top = 29
+      Width = 104
+      Height = 21
+      DataField = 'f_ativo'
+      DataSource = ds
+      Items.Strings = (
+        'S'
+        'N')
+      TabOrder = 1
+    end
+  end
+  inherited pnControle: TPanel
+    Top = 322
+    Width = 686
+    inherited btnFechar: TBitBtn
+      Left = 597
+    end
+    inherited btnCancelar: TBitBtn
+      Left = 499
+    end
+    inherited btnSalvar: TBitBtn
+      Left = 411
+    end
+  end
+  inherited ds: TDataSource
+    DataSet = dmCantina.ztbFuncionario
+  end
+end

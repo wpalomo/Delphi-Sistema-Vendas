@@ -1,0 +1,55 @@
+inherited frmFuncionarioLista: TfrmFuncionarioLista
+  Caption = 'Lista de Funcion'#225'rios'
+  WindowState = wsMaximized
+  PixelsPerInch = 96
+  TextHeight = 13
+  inherited gbDados: TGroupBox
+    inherited dbgDados: TDBGrid
+      Columns = <
+        item
+          Expanded = False
+          FieldName = 'f_id'
+          Width = 60
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'f_ativo'
+          Width = 30
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'f_nome'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'f_usuario'
+          Width = 200
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'f_data_cadastro'
+          Width = 150
+          Visible = True
+        end
+        item
+          Expanded = False
+          FieldName = 'f_data_inativo'
+          Width = 150
+          Visible = True
+        end>
+    end
+  end
+  inherited pnControle: TPanel
+    inherited btnEditar: TBitBtn
+      OnClick = btnEditarClick
+    end
+  end
+  inherited ds: TDataSource
+    DataSet = dmCantina.ztbFuncionario
+  end
+end

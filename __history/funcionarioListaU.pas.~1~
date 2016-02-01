@@ -1,0 +1,24 @@
+unit funcionarioListaU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloListaU, DB, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TfrmFuncionarioLista = class(TfrmModeloLista)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmFuncionarioLista: TfrmFuncionarioLista;
+
+implementation
+
+{$R *.dfm}
+
+end.

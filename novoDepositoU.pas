@@ -1,0 +1,79 @@
+unit novoDepositoU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TfrmDeposito = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    edtValor: TEdit;
+    btnDepositar: TBitBtn;
+    btnCancelar: TBitBtn;
+    procedure btnDepositarClick(Sender: TObject);
+    procedure edtValorKeyPress(Sender: TObject; var Key: Char);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure FormKeyDown(Sender: TObject; var Key: Word; Shift: TShiftState);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmDeposito: TfrmDeposito;
+
+implementation
+
+{$R *.dfm}
+uses dmU;
+
+procedure TfrmDeposito.btnCancelarClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmDeposito.btnDepositarClick(Sender: TObject);
+var
+  deposito : real;
+
+begin
+  deposito := StrToFloat(edtValor.Text); // converte variavel
+
+  dmCantina.zqrCliente.Edit; // coloca a tabela em modo de edição
+  dmCantina.zqrClienteco_saldo.Value := dmCantina.zqrClienteco_saldo.Value  + deposito; // adiciona o novo valor ao saldo anterior
+  dmCantina.zqrCliente.Post; // grava no banco de dados o novo saldo
+  dmCantina.zqrCliente.ApplyUpdates; // para a nova versão do Zeos é necessário aplicar as alterações
+
+  close;
+
+  end;
+
+procedure TfrmDeposito.edtValorKeyPress(Sender: TObject; var Key: Char);
+begin
+  if not (key in ['0'..'9', ',', char(VK_BACK)]) then begin
+      key := #0;
+  end;
+end;
+
+procedure TfrmDeposito.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  Action := caFree;
+  Self := nil;
+end;
+
+procedure TfrmDeposito.FormKeyDown(Sender: TObject; var Key: Word;
+  Shift: TShiftState);
+begin
+  if key = VK_ESCAPE then
+  begin
+    self.Close;
+  end;
+end;
+
+end.

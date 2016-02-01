@@ -1,0 +1,25 @@
+unit produtoListaU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloListaU, DB, ExtCtrls, Grids, DBGrids, StdCtrls, Buttons;
+
+type
+  TfrmProdutoLista = class(TfrmModeloLista)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProdutoLista: TfrmProdutoLista;
+
+implementation
+
+{$R *.dfm}
+  uses dmU;
+
+end.

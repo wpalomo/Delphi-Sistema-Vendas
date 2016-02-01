@@ -1,0 +1,75 @@
+unit modeloListaU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, Grids, DBGrids, StdCtrls, Buttons, ExtCtrls, DB;
+
+type
+  TfrmModeloLista = class(TForm)
+    gbFiltro: TGroupBox;
+    gbDados: TGroupBox;
+    pnControle: TPanel;
+    edtFiltro: TEdit;
+    lbFiltro: TLabel;
+    btnFiltro: TBitBtn;
+    dbgDados: TDBGrid;
+    btnFechar: TBitBtn;
+    btnExcluir: TBitBtn;
+    btnAdicionar: TBitBtn;
+    btnEditar: TBitBtn;
+    ds: TDataSource;
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure FormShow(Sender: TObject);
+    procedure btnFecharClick(Sender: TObject);
+    procedure btnAdicionarClick(Sender: TObject);
+    procedure btnExcluirClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmModeloLista: TfrmModeloLista;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmModeloLista.btnAdicionarClick(Sender: TObject);
+begin
+    ds.DataSet.Append;
+end;
+
+procedure TfrmModeloLista.btnExcluirClick(Sender: TObject);
+begin
+  if ds.DataSet.RecordCount = 0 then begin
+      MessageBox(Application.Handle, Pchar('Não existe para ser excluído.'), Pchar('Falha ao exluir registro'), MB_OK+MB_ICONERROR);
+      exit;
+  end;
+
+  if MessageBox(Application.Handle, Pchar('Deseja exluir este registro'), Pchar('Confirmar exclusão'), MB_YESNO+MB_ICONQUESTION ) = ID_YES then
+        ds.DataSet.Delete;
+end;
+
+procedure TfrmModeloLista.btnFecharClick(Sender: TObject);
+begin
+  self.Close;
+end;
+
+procedure TfrmModeloLista.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  ds.DataSet.Close;
+
+  Action := caFree;
+  self := nil;
+end;
+
+procedure TfrmModeloLista.FormShow(Sender: TObject);
+begin
+    ds.DataSet.Open;
+end;
+
+end.

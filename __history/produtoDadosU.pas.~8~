@@ -1,0 +1,70 @@
+unit produtoDadosU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloDadosU, DB, StdCtrls, Buttons, ExtCtrls, DBCtrls, Mask, JPEG;
+
+type
+  TfrmProdutoDados = class(TfrmModeloDados)
+    Label1: TLabel;
+    dbeID: TDBEdit;
+    Label2: TLabel;
+    dbeProduto: TDBEdit;
+    Label4: TLabel;
+    dbePreco: TDBEdit;
+    Label5: TLabel;
+    dbeCusto: TDBEdit;
+    Label6: TLabel;
+    dbeQuantidade: TDBEdit;
+    Label7: TLabel;
+    dbeEstoqueMinimo: TDBEdit;
+    Label8: TLabel;
+    Label9: TLabel;
+    dbeDataCadastro: TDBEdit;
+    Label10: TLabel;
+    dbeDataInativo: TDBEdit;
+    dbcAtivo: TDBComboBox;
+    Panel1: TPanel;
+    Panel2: TPanel;
+    gbFoto: TGroupBox;
+    imProduto: TImage;
+    procedure btnSalvarClick(Sender: TObject);
+    procedure dsDataChange(Sender: TObject; Field: TField);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmProdutoDados: TfrmProdutoDados;
+
+implementation
+
+{$R *.dfm}
+  uses dmU;
+
+procedure TfrmProdutoDados.btnSalvarClick(Sender: TObject);
+begin
+  if dmCantina.ztbProdutop_ativo.Value = 'N' then
+  begin
+    dmCantina.ztbProdutop_data_inativo.Value := now;
+  end;
+
+  dmCantina.ztbProduto.Post;
+
+end;
+
+procedure TfrmProdutoDados.dsDataChange(Sender: TObject; Field: TField);
+var
+  jpg: TJPEGImage;
+  stream : TMemoryStream;
+
+begin
+  inherited;
+
+end;
+
+end.

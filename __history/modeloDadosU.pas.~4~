@@ -1,0 +1,48 @@
+unit modeloDadosU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, DB, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TfrmModeloDados = class(TForm)
+    gbDados: TGroupBox;
+    pnControle: TPanel;
+    btnFechar: TBitBtn;
+    btnCancelar: TBitBtn;
+    btnSalvar: TBitBtn;
+    ds: TDataSource;
+    procedure btnFecharClick(Sender: TObject);
+    procedure btnCancelarClick(Sender: TObject);
+    procedure btnSalvarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmModeloDados: TfrmModeloDados;
+
+implementation
+
+{$R *.dfm}
+
+procedure TfrmModeloDados.btnCancelarClick(Sender: TObject);
+begin
+  ds.DataSet.Cancel;
+end;
+
+procedure TfrmModeloDados.btnFecharClick(Sender: TObject);
+begin
+  self.Close;
+end;
+
+procedure TfrmModeloDados.btnSalvarClick(Sender: TObject);
+begin
+  ds.DataSet.Post;
+end;
+
+end.

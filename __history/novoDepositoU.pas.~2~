@@ -1,0 +1,43 @@
+unit novoDepositoU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TfrmDeposito = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    Label1: TLabel;
+    edtValor: TEdit;
+    btnDepositar: TBitBtn;
+    btnCancelar: TBitBtn;
+    procedure btnDepositarClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmDeposito: TfrmDeposito;
+
+implementation
+
+{$R *.dfm}
+uses dmU;
+
+procedure TfrmDeposito.btnDepositarClick(Sender: TObject);
+var
+  deposito : real;
+
+begin
+  deposito := StrToFloat(edtValor.Text);
+
+  dmCantina.zqrCliente.Edit;
+  dmCantina.zqrClienteco_saldo.Value := dmCantina.zqrClienteco_saldo.Value  + deposito;
+end;
+
+end.

@@ -1,0 +1,24 @@
+unit funcionarioDadosU;
+
+interface
+
+uses
+  Windows, Messages, SysUtils, Variants, Classes, Graphics, Controls, Forms,
+  Dialogs, modeloDadosU, DB, StdCtrls, Buttons, ExtCtrls;
+
+type
+  TfrmModeloDados1 = class(TfrmModeloDados)
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmModeloDados1: TfrmModeloDados1;
+
+implementation
+
+{$R *.dfm}
+
+end.
